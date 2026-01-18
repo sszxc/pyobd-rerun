@@ -74,6 +74,13 @@ import obd
 
 from obd.utils import OBDStatus
 
+try:
+    import rerun as rr
+    import rerun.blueprint as rrb
+    RERUN_AVAILABLE = True
+except ImportError:
+    RERUN_AVAILABLE = False
+
 
 
 
@@ -1664,12 +1671,24 @@ class MyApp(wx.App):
                                 if r.value == None:
                                     wx.PostEvent(self._notify_window, Graphs8ValueEvent([0, 2, str(0)]))
                                     self.unit8_1 = "unit"
+                                    # Log to rerun if recording
+                                    if RERUN_AVAILABLE and self._notify_window.rerun_recording and self.current_command8_1:
+                                        try:
+                                            rr.log("sensor_1", rr.Scalars([0]))
+                                        except:
+                                            pass
                                 else:
                                     wx.PostEvent(self._notify_window, Graphs8ValueEvent([0, 2, str(r.value)]))
                                     try:
                                         self.unit8_1 = str(r.value).split(' ')[1]
                                     except IndexError:
                                         self.unit8_1 = "unit"
+                                    # Log to rerun if recording
+                                    if RERUN_AVAILABLE and self._notify_window.rerun_recording and self.current_command8_1:
+                                        try:
+                                            rr.log("sensor_1", rr.Scalars([float(r.value.magnitude)]))
+                                        except:
+                                            pass
                         else:
                             self.graph_x_vals8_1 = np.array([])
                             self.graph_y_vals8_1 = np.array([])
@@ -1713,12 +1732,24 @@ class MyApp(wx.App):
                                 if r.value == None:
                                     wx.PostEvent(self._notify_window, Graphs8ValueEvent([1, 2, str(0)]))
                                     self.unit8_2 = "unit"
+                                    # Log to rerun if recording
+                                    if RERUN_AVAILABLE and self._notify_window.rerun_recording and self.current_command8_2:
+                                        try:
+                                            rr.log("sensor_2", rr.Scalars([0]))
+                                        except:
+                                            pass
                                 else:
                                     wx.PostEvent(self._notify_window, Graphs8ValueEvent([1, 2, str(r.value)]))
                                     try:
                                         self.unit8_2 = str(r.value).split(' ')[1]
                                     except IndexError:
                                         self.unit8_2 = "unit"
+                                    # Log to rerun if recording
+                                    if RERUN_AVAILABLE and self._notify_window.rerun_recording and self.current_command8_2:
+                                        try:
+                                            rr.log("sensor_2", rr.Scalars([float(r.value.magnitude)]))
+                                        except:
+                                            pass
                         else:
                             self.graph_x_vals8_2 = np.array([])
                             self.graph_y_vals8_2 = np.array([])
@@ -1762,12 +1793,24 @@ class MyApp(wx.App):
                                 if r.value == None:
                                     wx.PostEvent(self._notify_window, Graphs8ValueEvent([2, 2, str(0)]))
                                     self.unit8_3 = "unit"
+                                    # Log to rerun if recording
+                                    if RERUN_AVAILABLE and self._notify_window.rerun_recording and self.current_command8_3:
+                                        try:
+                                            rr.log("sensor_3", rr.Scalars([0]))
+                                        except:
+                                            pass
                                 else:
                                     wx.PostEvent(self._notify_window, Graphs8ValueEvent([2, 2, str(r.value)]))
                                     try:
                                         self.unit8_3 = str(r.value).split(' ')[1]
                                     except IndexError:
                                         self.unit8_3 = "unit"
+                                    # Log to rerun if recording
+                                    if RERUN_AVAILABLE and self._notify_window.rerun_recording and self.current_command8_3:
+                                        try:
+                                            rr.log("sensor_3", rr.Scalars([float(r.value.magnitude)]))
+                                        except:
+                                            pass
                         else:
                             self.graph_x_vals8_3 = np.array([])
                             self.graph_y_vals8_3 = np.array([])
@@ -1813,12 +1856,24 @@ class MyApp(wx.App):
                                 if r.value == None:
                                     wx.PostEvent(self._notify_window, Graphs8ValueEvent([3, 2, str(0)]))
                                     self.unit8_4 = "unit"
+                                    # Log to rerun if recording
+                                    if RERUN_AVAILABLE and self._notify_window.rerun_recording and self.current_command8_4:
+                                        try:
+                                            rr.log("sensor_4", rr.Scalars([0]))
+                                        except:
+                                            pass
                                 else:
                                     wx.PostEvent(self._notify_window, Graphs8ValueEvent([3, 2, str(r.value)]))
                                     try:
                                         self.unit8_4 = str(r.value).split(' ')[1]
                                     except IndexError:
                                         self.unit8_4 = "unit"
+                                    # Log to rerun if recording
+                                    if RERUN_AVAILABLE and self._notify_window.rerun_recording and self.current_command8_4:
+                                        try:
+                                            rr.log("sensor_4", rr.Scalars([float(r.value.magnitude)]))
+                                        except:
+                                            pass
                         else:
                             self.graph_x_vals8_4 = np.array([])
                             self.graph_y_vals8_4 = np.array([])
@@ -1867,12 +1922,24 @@ class MyApp(wx.App):
                                 if r.value == None:
                                     wx.PostEvent(self._notify_window, Graphs8ValueEvent([4, 2, str(0)]))
                                     self.unit8_5 = "unit"
+                                    # Log to rerun if recording
+                                    if RERUN_AVAILABLE and self._notify_window.rerun_recording and self.current_command8_5:
+                                        try:
+                                            rr.log("sensor_5", rr.Scalars([0]))
+                                        except:
+                                            pass
                                 else:
                                     wx.PostEvent(self._notify_window, Graphs8ValueEvent([4, 2, str(r.value)]))
                                     try:
                                         self.unit8_5 = str(r.value).split(' ')[1]
                                     except IndexError:
                                         self.unit8_5 = "unit"
+                                    # Log to rerun if recording
+                                    if RERUN_AVAILABLE and self._notify_window.rerun_recording and self.current_command8_5:
+                                        try:
+                                            rr.log("sensor_5", rr.Scalars([float(r.value.magnitude)]))
+                                        except:
+                                            pass
                         else:
                             self.graph_x_vals8_5 = np.array([])
                             self.graph_y_vals8_5 = np.array([])
@@ -1918,12 +1985,24 @@ class MyApp(wx.App):
                                 if r.value == None:
                                     wx.PostEvent(self._notify_window, Graphs8ValueEvent([5, 2, str(0)]))
                                     self.unit8_6 = "unit"
+                                    # Log to rerun if recording
+                                    if RERUN_AVAILABLE and self._notify_window.rerun_recording and self.current_command8_6:
+                                        try:
+                                            rr.log("sensor_6", rr.Scalars([0]))
+                                        except:
+                                            pass
                                 else:
                                     wx.PostEvent(self._notify_window, Graphs8ValueEvent([5, 2, str(r.value)]))
                                     try:
                                         self.unit8_6 = str(r.value).split(' ')[1]
                                     except IndexError:
                                         self.unit8_6 = "unit"
+                                    # Log to rerun if recording
+                                    if RERUN_AVAILABLE and self._notify_window.rerun_recording and self.current_command8_6:
+                                        try:
+                                            rr.log("sensor_6", rr.Scalars([float(r.value.magnitude)]))
+                                        except:
+                                            pass
                         else:
                             self.graph_x_vals8_6 = np.array([])
                             self.graph_y_vals8_6 = np.array([])
@@ -1969,12 +2048,24 @@ class MyApp(wx.App):
                                 if r.value == None:
                                     wx.PostEvent(self._notify_window, Graphs8ValueEvent([6, 2, str(0)]))
                                     self.unit8_7 = "unit"
+                                    # Log to rerun if recording
+                                    if RERUN_AVAILABLE and self._notify_window.rerun_recording and self.current_command8_7:
+                                        try:
+                                            rr.log("sensor_7", rr.Scalars([0]))
+                                        except:
+                                            pass
                                 else:
                                     wx.PostEvent(self._notify_window, Graphs8ValueEvent([6, 2, str(r.value)]))
                                     try:
                                         self.unit8_7 = str(r.value).split(' ')[1]
                                     except IndexError:
                                         self.unit8_7 = "unit"
+                                    # Log to rerun if recording
+                                    if RERUN_AVAILABLE and self._notify_window.rerun_recording and self.current_command8_7:
+                                        try:
+                                            rr.log("sensor_7", rr.Scalars([float(r.value.magnitude)]))
+                                        except:
+                                            pass
                         else:
                             self.graph_x_vals8_7 = np.array([])
                             self.graph_y_vals8_7 = np.array([])
@@ -2020,12 +2111,24 @@ class MyApp(wx.App):
                                 if r.value == None:
                                     wx.PostEvent(self._notify_window, Graphs8ValueEvent([7, 2, str(0)]))
                                     self.unit8_8 = "unit"
+                                    # Log to rerun if recording
+                                    if RERUN_AVAILABLE and self._notify_window.rerun_recording and self.current_command8_8:
+                                        try:
+                                            rr.log("sensor_8", rr.Scalars([0]))
+                                        except:
+                                            pass
                                 else:
                                     wx.PostEvent(self._notify_window, Graphs8ValueEvent([7, 2, str(r.value)]))
                                     try:
                                         self.unit8_8 = str(r.value).split(' ')[1]
                                     except IndexError:
                                         self.unit8_8 = "unit"
+                                    # Log to rerun if recording
+                                    if RERUN_AVAILABLE and self._notify_window.rerun_recording and self.current_command8_8:
+                                        try:
+                                            rr.log("sensor_8", rr.Scalars([float(r.value.magnitude)]))
+                                        except:
+                                            pass
                         else:
                             self.graph_x_vals8_8 = np.array([])
                             self.graph_y_vals8_8 = np.array([])
@@ -2479,6 +2582,9 @@ class MyApp(wx.App):
         self.COMPORT = 0
         self.senprod = None
         self.DEBUGLEVEL = 0  # debug everything
+        # Rerun recording state
+        self.rerun_recording = False
+        self.rerun_recording_started = False
 
         # tID = wx.NewId()
         tID = wx.NewIdRef(count=1)
@@ -2752,13 +2858,16 @@ the Free Software Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  0211
 
     def BuildComboBoxGraphs8(self, event):
         self.combobox8_1 = wx.ComboBox(self.graphs8_panel, choices=event.data, pos=(0, 240))
-        self.combobox8_2 = wx.ComboBox(self.graphs8_panel, choices=event.data, pos=(0, 290))
+        self.combobox8_2 = wx.ComboBox(self.graphs8_panel, choices=event.data, pos=(0, 275))
         self.combobox8_3 = wx.ComboBox(self.graphs8_panel, choices=event.data, pos=(330, 240))
-        self.combobox8_4 = wx.ComboBox(self.graphs8_panel, choices=event.data, pos=(330, 290))
+        self.combobox8_4 = wx.ComboBox(self.graphs8_panel, choices=event.data, pos=(330, 275))
         self.combobox8_5 = wx.ComboBox(self.graphs8_panel, choices=event.data, pos=(660, 240))
-        self.combobox8_6 = wx.ComboBox(self.graphs8_panel, choices=event.data, pos=(660, 290))
+        self.combobox8_6 = wx.ComboBox(self.graphs8_panel, choices=event.data, pos=(660, 275))
         self.combobox8_7 = wx.ComboBox(self.graphs8_panel, choices=event.data, pos=(990, 240))
-        self.combobox8_8 = wx.ComboBox(self.graphs8_panel, choices=event.data, pos=(990, 290))
+        self.combobox8_8 = wx.ComboBox(self.graphs8_panel, choices=event.data, pos=(990, 275))
+        # Add Record to Rerun button
+        self.rerun_button = wx.Button(self.graphs8_panel, -1, "Record to Rerun", pos=(0, 310))
+        self.graphs8_panel.Bind(wx.EVT_BUTTON, self.OnRerunButton, self.rerun_button)
         self.build_combobox_graphs8_event_finished=True
 
     def DestroyComboBox(self, event):
@@ -2795,9 +2904,13 @@ the Free Software Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  0211
             self.combobox8_7.Destroy()
             self.combobox8_8
             self.combobox8_8.Destroy()
-
         except Exception as e:
             print(e)
+        try:
+            self.rerun_button
+            self.rerun_button.Destroy()
+        except Exception as e:
+            pass
 
     def GetSelectionGraphComboBox(self, event):
         try:
@@ -3296,6 +3409,81 @@ the Free Software Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  0211
         self.senprod.start()
 
         self.sensor_control_on()
+
+    def OnRerunButton(self, e):
+        """Toggle rerun recording state"""
+        if not RERUN_AVAILABLE:
+            wx.MessageBox("Rerun is not available. Please install rerun with: pip install rerun-sdk", 
+                         "Rerun Not Available", wx.OK | wx.ICON_WARNING)
+            return
+        
+        if not self.rerun_recording:
+            # Start recording
+            try:
+                rr.init("pyobd", spawn=True)
+                
+                # Create blueprint layout with 2 rows and 4 columns
+                # Get sensor names from current commands if available
+                sensor_names = []
+                sensor_paths = []
+                if self.senprod:
+                    commands = [
+                        self.senprod.current_command8_1,
+                        self.senprod.current_command8_2,
+                        self.senprod.current_command8_3,
+                        self.senprod.current_command8_4,
+                        self.senprod.current_command8_5,
+                        self.senprod.current_command8_6,
+                        self.senprod.current_command8_7,
+                        self.senprod.current_command8_8,
+                    ]
+                    for i, cmd in enumerate(commands, 1):
+                        if cmd:
+                            sensor_name = cmd.desc.replace(' ', '_')
+                            sensor_names.append(sensor_name)
+                            sensor_paths.append(f"sensor_{i}")
+                        else:
+                            sensor_names.append(f"Sensor_{i}")
+                            sensor_paths.append(f"sensor_{i}")
+                else:
+                    # Default names if no connection
+                    for i in range(1, 9):
+                        sensor_names.append(f"Sensor_{i}")
+                        sensor_paths.append(f"sensor_{i}")
+                
+                # Create blueprint with 2 rows x 4 columns grid
+                blueprint = rrb.Blueprint(
+                    rrb.Grid(
+                        # First row: sensors 1-4
+                        rrb.TimeSeriesView(name=sensor_names[0], origin=sensor_paths[0]),
+                        rrb.TimeSeriesView(name=sensor_names[1], origin=sensor_paths[1]),
+                        rrb.TimeSeriesView(name=sensor_names[2], origin=sensor_paths[2]),
+                        rrb.TimeSeriesView(name=sensor_names[3], origin=sensor_paths[3]),
+                        # Second row: sensors 5-8
+                        rrb.TimeSeriesView(name=sensor_names[4], origin=sensor_paths[4]),
+                        rrb.TimeSeriesView(name=sensor_names[5], origin=sensor_paths[5]),
+                        rrb.TimeSeriesView(name=sensor_names[6], origin=sensor_paths[6]),
+                        rrb.TimeSeriesView(name=sensor_names[7], origin=sensor_paths[7]),
+                        grid_columns=4,  # 4 columns
+                    ),
+                    collapse_panels=True,  # Collapse other panels for more space
+                )
+                
+                # Send blueprint
+                rr.send_blueprint(blueprint)
+                
+                self.rerun_recording = True
+                self.rerun_recording_started = True
+                self.rerun_button.SetLabel("Stop Recording")
+                wx.PostEvent(self, StatusEvent([0, 1, "Rerun recording started..."]))
+            except Exception as ex:
+                wx.MessageBox(f"Failed to start rerun recording: {str(ex)}", 
+                             "Error", wx.OK | wx.ICON_ERROR)
+        else:
+            # Stop recording
+            self.rerun_recording = False
+            self.rerun_button.SetLabel("Record to Rerun")
+            wx.PostEvent(self, StatusEvent([0, 1, "Rerun recording stopped."]))
 
     def GetDTC(self, e):
         self.nb.SetSelection(3)
